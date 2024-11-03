@@ -1,0 +1,51 @@
+### Registration
+POST http://localhost:8080/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="username"
+
+dragos
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+password123
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Login
+POST http://localhost:8080/login
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="username"
+
+dragos
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+password123
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Access protected resource
+POST http://localhost:8080/protected
+X-CSRF-Token: XPbVN-rDbPNNIYqM_kryHMA8xhFpmQx1YXd0p0LZILM=
+Cookie: session_token=tQSH0mKlze3hE_Q88DW07AL734A0Hwndm_mtEbfDm8c=
+Content-Type: application/json
+
+ {
+    "username": "dragos"
+ }
+
+### Logout 
+POST http://localhost:8080/logout
+X-CSRF-Token: XPbVN-rDbPNNIYqM_kryHMA8xhFpmQx1YXd0p0LZILM=
+Cookie: session_token=tQSH0mKlze3hE_Q88DW07AL734A0Hwndm_mtEbfDm8c=
+Content-Type: application/json
+
+ {
+    "username": "dragos"
+ }
+
+### Access protected resource
+GET http://localhost:8080/protected
+
